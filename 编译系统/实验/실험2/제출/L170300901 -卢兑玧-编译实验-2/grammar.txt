@@ -1,0 +1,112 @@
+Program -> Declaration Program
+Declaration -> Type ID Declaration'
+Declaration -> void ID Function
+Declaration -> struct ID { Member_list } ;
+Member_list -> Type ID ; Member_list'
+Member_list' -> Type ID ; Member_list'
+Member_list' -> $
+Declaration' -> ;
+Declaration' -> Assign ;
+Declaration' -> array_defines
+Declaration' -> Function
+Function -> ( args ) Function_body
+Type -> int
+Type -> short
+Type -> long
+Type -> char
+Type -> float
+Type -> double
+Type -> unsigned Type
+args -> Type ID arg
+args -> $
+arg -> , Type ID arg
+arg -> $
+Function_body -> ;
+Function_body -> block
+block -> { define_stmts stmts }
+define_stmts -> define_stmt define_stmts
+define_stmts -> $
+define_stmt -> Type ID define_body
+define_body -> vars_define
+define_body -> array_defines
+vars_define -> init vars ;
+array_defines -> [ INT ] array_define ;
+array_define -> [ INT ] array_define
+array_define -> $
+init -> = expression
+init -> $
+vars -> , ID init vars
+vars -> $
+stmts -> stmt stmts
+stmts -> $
+stmt -> assign_stmt
+stmt -> jump_stmt
+stmt -> iteration_stmt
+stmt -> branch_stmt
+assign_stmt -> expression ;
+jump_stmt -> continue ;
+jump_stmt -> break ;
+jump_stmt -> return isnull_expr ;
+iteration_stmt -> while ( logical_expression ) block_stmt
+iteration_stmt -> for ( isnull_expr ; isnull_expr ; isnull_expr ) block_stmt
+iteration_stmt -> do block_stmt while ( logical_expression ) ;
+branch_stmt -> if ( logical_expression ) block_stmt result
+result -> else block_stmt
+result -> $
+logical_expression -> ! expression bool_expression
+logical_expression -> expression bool_expression
+bool_expression -> lop expression bool_expression
+bool_expression -> $
+lop -> &&
+lop -> ||
+branch_stmt -> switch ( ID ) { case_stmt case_stmts default_stmt }
+case_stmts -> case_stmt case_stmts
+case_stmts -> $
+case_stmt -> case const : stmts
+default_stmt -> default : stmts
+block_stmt -> { stmts }
+isnull_expr -> expression
+isnull_expr -> $
+expression -> value operation
+operation -> compare_op value
+operation -> equal_op value
+operation -> $
+compare_op -> >
+compare_op -> >=
+compare_op -> <
+compare_op -> <=
+compare_op -> ==
+compare_op -> !=
+equal_op -> =
+equal_op -> +=
+equal_op -> -=
+equal_op -> *=
+equal_op -> /=
+equal_op -> %=
+value -> item value'
+value' -> + item value'
+value' -> - item value'
+value' -> $
+item -> factor item'
+item' -> * factor item'
+item' -> / factor item'
+item' -> % factor item'
+item' -> $
+factor -> ( value )
+factor -> ID ID_body
+factor -> const
+ID_body -> call_Function
+ID_body -> Array_calls
+Array_calls -> [ INT ] Array_call
+Array_call -> [ INT ] Array_call
+Array_call -> $
+call_Function -> ( es )
+call_Function -> $
+es -> isnull_expr isnull_es
+isnull_es -> , isnull_expr isnull_es
+isnull_es -> $
+const -> num_const
+const -> FLOAT
+const -> CHAR
+const -> STRING
+num_const -> INT

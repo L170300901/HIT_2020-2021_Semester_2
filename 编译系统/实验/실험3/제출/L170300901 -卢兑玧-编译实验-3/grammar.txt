@@ -1,0 +1,153 @@
+Program -> Function Program
+Program -> $
+Function -> Type ID M_E1 ( Parameters ) Function_Body
+Function -> void ID M_E1 ( Parameters ) Function_Body
+Parameters -> $
+Parameters -> Type ID M_E8 Parameters'
+Parameters' -> $
+Parameters' -> , Type ID M_E8 Parameters'
+Function_Body -> ;
+Function_Body -> Block
+Block -> { Define_Sentenses Sentenses }
+Define_Sentenses -> Define_Sentense Define_Sentenses
+Define_Sentenses -> $
+Define_Sentense -> Type ID M_A1 Array M_A2 Indentifiers ; M_E2
+Define_Sentense -> struct ID M_A3 { List_Member } ; M_E2
+List_Member -> Type ID M_A1 Array ; M_A4 List_Member'
+List_Member' -> Type ID M_A1 Array ; M_A5 List_Member'
+List_Member' -> M_A6
+Array -> M_A7
+Array -> [ INT ] M_A8 Array M_A9_1
+Indentifiers -> $
+Indentifiers -> , ID M_A10 Array M_A11 Indentifiers
+Sentenses -> $
+Sentenses -> Sentense Sentenses
+Sentense -> Expression ;
+Sentense -> ;
+Sentense -> return Expression M_A55 ;
+Sentense -> continue ;
+Sentense -> break ;
+Sentense -> if ( Expression ) M_A12 Block M_A13 Else_Body M_A14
+Sentense -> switch ( Expression ) { Cases_Body }
+Sentense -> do Sentense while ( Expression ) ;
+Sentense -> for ( Expression ; Expression ; Expression ) Sentense
+Sentense -> while ( M_A15 Expression ) M_A12 Block M_A16
+Else_Body -> else Block
+Else_Body -> $
+Cases_Body -> Case_Body Cases_Body
+Cases_Body -> $
+Case_Body -> case Constant : Sentenses
+Case_Body -> default : Sentenses
+Expression -> Value M_A17 Expression' M_A18
+Expression' -> M_E6
+Expression' -> < Value M_E7 M_A19
+Expression' -> <= Value M_E7 M_A20
+Expression' -> > Value M_E7 M_A21
+Expression' -> >= Value M_E7 M_A22
+Expression' -> == Value M_E7 M_A23
+Expression' -> != Value M_E7 M_A24
+Expression' -> = Value M_E7 M_A25
+Expression' -> += Value M_E7 M_A26
+Expression' -> -= Value M_E7 M_A27
+Expression' -> *= Value M_E7 M_A28
+Expression' -> /= Value M_E7 M_A29
+Expression' -> %= Value M_E7 M_A30
+Value -> Add_Item M_A17 Add_Items M_A18
+Add_Items -> $
+Add_Items -> + Add_Item M_E7 M_A31 Add_Items M_A18
+Add_Items -> - Add_Item M_E7 M_A32 Add_Items M_A18
+Add_Item -> Factor_Multi M_A17 Factor_Multis M_A18
+Factor_Multis -> $
+Factor_Multis -> * Factor_Multi M_E7 M_A33 Factor_Multis M_A18
+Factor_Multis -> / Factor_Multi M_E7 M_A34 Factor_Multis M_A18
+Factor_Multis -> % Factor_Multi M_E7 M_A35 Factor_Multis M_A18
+Factor_Multi -> ! Factor_Multi M_A36
+Factor_Multi -> ++ Factor_Multi M_A37
+Factor_Multi -> -- Factor_Multi M_A38
+Factor_Multi -> ( Expression ) M_A39
+Factor_Multi -> ID M_A40 Call M_A9
+Factor_Multi -> Constant M_A9
+Factor_Multi -> - Factor_Multi M_A41
+Call -> M_E3 M_A42 Array M_A9
+Call -> M_E4 ( Pass_Parameters ) M_A43
+Call -> . ID M_E5 M_A44
+Pass_Parameters -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters -> M_E10 M_A47
+Pass_Parameters' -> , Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters' -> M_E10 M_A47
+Type -> char M_A48
+Type -> int M_A49
+Type -> long M_A50
+Type -> short M_A51
+Type -> float M_A52
+Type -> double M_A53
+Constant -> INT M_A54
+Constant -> FLOAT M_A54
+Constant -> DOUBLE M_A54
+Constant -> CHAR M_A54
+M_A1 -> $
+M_A2 -> $
+M_A3 -> $
+M_A4 -> $
+M_A5 -> $
+M_A6 -> $
+M_A7 -> $
+M_A8 -> $
+M_A9 -> $
+M_A10 -> $
+M_A11 -> $
+M_A12 -> $
+M_A13 -> $
+M_A14 -> $
+M_A15 -> $
+M_A16 -> $
+M_A17 -> $
+M_A18 -> $
+M_A19 -> $
+M_A20 -> $
+M_A21 -> $
+M_A22 -> $
+M_A23 -> $
+M_A24 -> $
+M_A25 -> $
+M_A26 -> $
+M_A27 -> $
+M_A28 -> $
+M_A29 -> $
+M_A30 -> $
+M_A31 -> $
+M_A32 -> $
+M_A33 -> $
+M_A34 -> $
+M_A35 -> $
+M_A36 -> $
+M_A37 -> $
+M_A38 -> $
+M_A39 -> $
+M_A40 -> $
+M_A41 -> $
+M_A42 -> $
+M_A43 -> $
+M_A44 -> $
+M_A45 -> $
+M_A46 -> $
+M_A47 -> $
+M_A48 -> $
+M_A49 -> $
+M_A50 -> $
+M_A51 -> $
+M_A52 -> $
+M_A53 -> $
+M_A54 -> $
+M_A55 -> $
+M_E1 -> $
+M_E2 -> $
+M_E3 -> $
+M_E4 -> $
+M_E5 -> $
+M_E6 -> $
+M_E7 -> $
+M_E8 -> $
+M_E9 -> $
+M_E10 -> $
+M_A9_1 -> $

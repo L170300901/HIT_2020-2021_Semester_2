@@ -1,0 +1,60 @@
+0
+Unrecognized character "错"
+0
+Unrecognized character "误"
+0
+Unrecognized character "测"
+0
+Unrecognized character "试"
+16
+Incorrect number format:1test
+24
+Incorrect Octal Number format:01238
+25
+Incorrect Octal Number format:0x123g8
+26
+Incorrect number format:123.
+27
+Incorrect number format:123.1B
+28
+Incorrect number format:123.1EB
+29
+Incorrect number format:123.456E-789B
+30
+Incorrect number format:123.456E-B
+31
+Incorrect number format:123.456E-
+32
+Incorrect Octal Number format:0xx
+47
+" is not closed:
+50
+Incorrect char format,mismatch of another '
+53
+Incorrect char format:\a
+54
+Incorrect char format:asd
+55
+Incorrect char format,mismatch of another '
+56
+Incorrect char format,mismatch of another '
+58
+Incorrect char format,mismatch of another '
+66
+Comment is not closed,mismatch another */
+67
+Comment is not closed,mismatch another */
+68
+Comment is not closed,mismatch another */
+68
+Unrecognized character "注"
+68
+Unrecognized character "释"
+68
+Unrecognized character "识"
+68
+Unrecognized character "别"
+68
+Unrecognized character "错"
+68
+Unrecognized character "误"

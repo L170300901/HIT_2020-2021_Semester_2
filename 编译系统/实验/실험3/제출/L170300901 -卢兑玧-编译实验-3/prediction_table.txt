@@ -1,0 +1,969 @@
+Program#void -> Function Program
+Program#char -> Function Program
+Program#int -> Function Program
+Program#long -> Function Program
+Program#short -> Function Program
+Program#float -> Function Program
+Program#double -> Function Program
+Function#char -> Type ID M_E1 ( Parameters ) Function_Body
+Function#int -> Type ID M_E1 ( Parameters ) Function_Body
+Function#long -> Type ID M_E1 ( Parameters ) Function_Body
+Function#short -> Type ID M_E1 ( Parameters ) Function_Body
+Function#float -> Type ID M_E1 ( Parameters ) Function_Body
+Function#double -> Type ID M_E1 ( Parameters ) Function_Body
+Function#void -> void ID M_E1 ( Parameters ) Function_Body
+Parameters#) -> $
+Parameters#char -> Type ID M_E8 Parameters'
+Parameters#int -> Type ID M_E8 Parameters'
+Parameters#long -> Type ID M_E8 Parameters'
+Parameters#short -> Type ID M_E8 Parameters'
+Parameters#float -> Type ID M_E8 Parameters'
+Parameters#double -> Type ID M_E8 Parameters'
+Parameters'#) -> $
+Parameters'#, -> , Type ID M_E8 Parameters'
+Function_Body#; -> ;
+Function_Body#{ -> Block
+Block#{ -> { Define_Sentenses Sentenses }
+Define_Sentenses#struct -> Define_Sentense Define_Sentenses
+Define_Sentenses#char -> Define_Sentense Define_Sentenses
+Define_Sentenses#int -> Define_Sentense Define_Sentenses
+Define_Sentenses#long -> Define_Sentense Define_Sentenses
+Define_Sentenses#short -> Define_Sentense Define_Sentenses
+Define_Sentenses#float -> Define_Sentense Define_Sentenses
+Define_Sentenses#double -> Define_Sentense Define_Sentenses
+Define_Sentenses#; -> $
+Define_Sentenses#return -> $
+Define_Sentenses#continue -> $
+Define_Sentenses#break -> $
+Define_Sentenses#if -> $
+Define_Sentenses#switch -> $
+Define_Sentenses#do -> $
+Define_Sentenses#for -> $
+Define_Sentenses#while -> $
+Define_Sentenses#! -> $
+Define_Sentenses#++ -> $
+Define_Sentenses#-- -> $
+Define_Sentenses#( -> $
+Define_Sentenses#ID -> $
+Define_Sentenses#- -> $
+Define_Sentenses#INT -> $
+Define_Sentenses#FLOAT -> $
+Define_Sentenses#DOUBLE -> $
+Define_Sentenses#CHAR -> $
+Define_Sentenses#} -> $
+Define_Sentense#char -> Type ID M_A1 Array M_A2 Indentifiers ; M_E2
+Define_Sentense#int -> Type ID M_A1 Array M_A2 Indentifiers ; M_E2
+Define_Sentense#long -> Type ID M_A1 Array M_A2 Indentifiers ; M_E2
+Define_Sentense#short -> Type ID M_A1 Array M_A2 Indentifiers ; M_E2
+Define_Sentense#float -> Type ID M_A1 Array M_A2 Indentifiers ; M_E2
+Define_Sentense#double -> Type ID M_A1 Array M_A2 Indentifiers ; M_E2
+Define_Sentense#struct -> struct ID M_A3 { List_Member } ; M_E2
+List_Member#char -> Type ID M_A1 Array ; M_A4 List_Member'
+List_Member#int -> Type ID M_A1 Array ; M_A4 List_Member'
+List_Member#long -> Type ID M_A1 Array ; M_A4 List_Member'
+List_Member#short -> Type ID M_A1 Array ; M_A4 List_Member'
+List_Member#float -> Type ID M_A1 Array ; M_A4 List_Member'
+List_Member#double -> Type ID M_A1 Array ; M_A4 List_Member'
+List_Member'#char -> Type ID M_A1 Array ; M_A5 List_Member'
+List_Member'#int -> Type ID M_A1 Array ; M_A5 List_Member'
+List_Member'#long -> Type ID M_A1 Array ; M_A5 List_Member'
+List_Member'#short -> Type ID M_A1 Array ; M_A5 List_Member'
+List_Member'#float -> Type ID M_A1 Array ; M_A5 List_Member'
+List_Member'#double -> Type ID M_A1 Array ; M_A5 List_Member'
+List_Member'#} -> M_A6
+Array#, -> M_A7
+Array#; -> M_A7
+Array#* -> M_A7
+Array#/ -> M_A7
+Array#% -> M_A7
+Array#+ -> M_A7
+Array#- -> M_A7
+Array#< -> M_A7
+Array#<= -> M_A7
+Array#> -> M_A7
+Array#>= -> M_A7
+Array#== -> M_A7
+Array#!= -> M_A7
+Array#= -> M_A7
+Array#+= -> M_A7
+Array#-= -> M_A7
+Array#*= -> M_A7
+Array#/= -> M_A7
+Array#%= -> M_A7
+Array#) -> M_A7
+Array#[ -> [ INT ] M_A8 Array M_A9_1
+Indentifiers#; -> $
+Indentifiers#, -> , ID M_A10 Array M_A11 Indentifiers
+Sentenses#} -> $
+Sentenses#case -> $
+Sentenses#default -> $
+Sentenses#; -> Sentense Sentenses
+Sentenses#return -> Sentense Sentenses
+Sentenses#continue -> Sentense Sentenses
+Sentenses#break -> Sentense Sentenses
+Sentenses#if -> Sentense Sentenses
+Sentenses#switch -> Sentense Sentenses
+Sentenses#do -> Sentense Sentenses
+Sentenses#for -> Sentense Sentenses
+Sentenses#while -> Sentense Sentenses
+Sentenses#! -> Sentense Sentenses
+Sentenses#++ -> Sentense Sentenses
+Sentenses#-- -> Sentense Sentenses
+Sentenses#( -> Sentense Sentenses
+Sentenses#ID -> Sentense Sentenses
+Sentenses#- -> Sentense Sentenses
+Sentenses#INT -> Sentense Sentenses
+Sentenses#FLOAT -> Sentense Sentenses
+Sentenses#DOUBLE -> Sentense Sentenses
+Sentenses#CHAR -> Sentense Sentenses
+Sentense#! -> Expression ;
+Sentense#++ -> Expression ;
+Sentense#-- -> Expression ;
+Sentense#( -> Expression ;
+Sentense#ID -> Expression ;
+Sentense#- -> Expression ;
+Sentense#INT -> Expression ;
+Sentense#FLOAT -> Expression ;
+Sentense#DOUBLE -> Expression ;
+Sentense#CHAR -> Expression ;
+Sentense#; -> ;
+Sentense#return -> return Expression M_A55 ;
+Sentense#continue -> continue ;
+Sentense#break -> break ;
+Sentense#if -> if ( Expression ) M_A12 Block M_A13 Else_Body M_A14
+Sentense#switch -> switch ( Expression ) { Cases_Body }
+Sentense#do -> do Sentense while ( Expression ) ;
+Sentense#for -> for ( Expression ; Expression ; Expression ) Sentense
+Sentense#while -> while ( M_A15 Expression ) M_A12 Block M_A16
+Else_Body#else -> else Block
+Else_Body#; -> $
+Else_Body#return -> $
+Else_Body#continue -> $
+Else_Body#break -> $
+Else_Body#if -> $
+Else_Body#switch -> $
+Else_Body#do -> $
+Else_Body#for -> $
+Else_Body#while -> $
+Else_Body#! -> $
+Else_Body#++ -> $
+Else_Body#-- -> $
+Else_Body#( -> $
+Else_Body#ID -> $
+Else_Body#- -> $
+Else_Body#INT -> $
+Else_Body#FLOAT -> $
+Else_Body#DOUBLE -> $
+Else_Body#CHAR -> $
+Else_Body#} -> $
+Else_Body#case -> $
+Else_Body#default -> $
+Cases_Body#case -> Case_Body Cases_Body
+Cases_Body#default -> Case_Body Cases_Body
+Cases_Body#} -> $
+Case_Body#case -> case Constant : Sentenses
+Case_Body#default -> default : Sentenses
+Expression#! -> Value M_A17 Expression' M_A18
+Expression#++ -> Value M_A17 Expression' M_A18
+Expression#-- -> Value M_A17 Expression' M_A18
+Expression#( -> Value M_A17 Expression' M_A18
+Expression#ID -> Value M_A17 Expression' M_A18
+Expression#- -> Value M_A17 Expression' M_A18
+Expression#INT -> Value M_A17 Expression' M_A18
+Expression#FLOAT -> Value M_A17 Expression' M_A18
+Expression#DOUBLE -> Value M_A17 Expression' M_A18
+Expression#CHAR -> Value M_A17 Expression' M_A18
+Expression'#; -> M_E6
+Expression'#) -> M_E6
+Expression'#, -> M_E6
+Expression'#< -> < Value M_E7 M_A19
+Expression'#<= -> <= Value M_E7 M_A20
+Expression'#> -> > Value M_E7 M_A21
+Expression'#>= -> >= Value M_E7 M_A22
+Expression'#== -> == Value M_E7 M_A23
+Expression'#!= -> != Value M_E7 M_A24
+Expression'#= -> = Value M_E7 M_A25
+Expression'#+= -> += Value M_E7 M_A26
+Expression'#-= -> -= Value M_E7 M_A27
+Expression'#*= -> *= Value M_E7 M_A28
+Expression'#/= -> /= Value M_E7 M_A29
+Expression'#%= -> %= Value M_E7 M_A30
+Value#! -> Add_Item M_A17 Add_Items M_A18
+Value#++ -> Add_Item M_A17 Add_Items M_A18
+Value#-- -> Add_Item M_A17 Add_Items M_A18
+Value#( -> Add_Item M_A17 Add_Items M_A18
+Value#ID -> Add_Item M_A17 Add_Items M_A18
+Value#- -> Add_Item M_A17 Add_Items M_A18
+Value#INT -> Add_Item M_A17 Add_Items M_A18
+Value#FLOAT -> Add_Item M_A17 Add_Items M_A18
+Value#DOUBLE -> Add_Item M_A17 Add_Items M_A18
+Value#CHAR -> Add_Item M_A17 Add_Items M_A18
+Add_Items#< -> $
+Add_Items#<= -> $
+Add_Items#> -> $
+Add_Items#>= -> $
+Add_Items#== -> $
+Add_Items#!= -> $
+Add_Items#= -> $
+Add_Items#+= -> $
+Add_Items#-= -> $
+Add_Items#*= -> $
+Add_Items#/= -> $
+Add_Items#%= -> $
+Add_Items#; -> $
+Add_Items#) -> $
+Add_Items#, -> $
+Add_Items#+ -> + Add_Item M_E7 M_A31 Add_Items M_A18
+Add_Items#- -> - Add_Item M_E7 M_A32 Add_Items M_A18
+Add_Item#! -> Factor_Multi M_A17 Factor_Multis M_A18
+Add_Item#++ -> Factor_Multi M_A17 Factor_Multis M_A18
+Add_Item#-- -> Factor_Multi M_A17 Factor_Multis M_A18
+Add_Item#( -> Factor_Multi M_A17 Factor_Multis M_A18
+Add_Item#ID -> Factor_Multi M_A17 Factor_Multis M_A18
+Add_Item#- -> Factor_Multi M_A17 Factor_Multis M_A18
+Add_Item#INT -> Factor_Multi M_A17 Factor_Multis M_A18
+Add_Item#FLOAT -> Factor_Multi M_A17 Factor_Multis M_A18
+Add_Item#DOUBLE -> Factor_Multi M_A17 Factor_Multis M_A18
+Add_Item#CHAR -> Factor_Multi M_A17 Factor_Multis M_A18
+Factor_Multis#+ -> $
+Factor_Multis#- -> $
+Factor_Multis#< -> $
+Factor_Multis#<= -> $
+Factor_Multis#> -> $
+Factor_Multis#>= -> $
+Factor_Multis#== -> $
+Factor_Multis#!= -> $
+Factor_Multis#= -> $
+Factor_Multis#+= -> $
+Factor_Multis#-= -> $
+Factor_Multis#*= -> $
+Factor_Multis#/= -> $
+Factor_Multis#%= -> $
+Factor_Multis#; -> $
+Factor_Multis#) -> $
+Factor_Multis#, -> $
+Factor_Multis#* -> * Factor_Multi M_E7 M_A33 Factor_Multis M_A18
+Factor_Multis#/ -> / Factor_Multi M_E7 M_A34 Factor_Multis M_A18
+Factor_Multis#% -> % Factor_Multi M_E7 M_A35 Factor_Multis M_A18
+Factor_Multi#! -> ! Factor_Multi M_A36
+Factor_Multi#++ -> ++ Factor_Multi M_A37
+Factor_Multi#-- -> -- Factor_Multi M_A38
+Factor_Multi#( -> ( Expression ) M_A39
+Factor_Multi#ID -> ID M_A40 Call M_A9
+Factor_Multi#INT -> Constant M_A9
+Factor_Multi#FLOAT -> Constant M_A9
+Factor_Multi#DOUBLE -> Constant M_A9
+Factor_Multi#CHAR -> Constant M_A9
+Factor_Multi#- -> - Factor_Multi M_A41
+Call#[ -> M_E3 M_A42 Array M_A9
+Call#* -> M_E3 M_A42 Array M_A9
+Call#/ -> M_E3 M_A42 Array M_A9
+Call#% -> M_E3 M_A42 Array M_A9
+Call#+ -> M_E3 M_A42 Array M_A9
+Call#- -> M_E3 M_A42 Array M_A9
+Call#< -> M_E3 M_A42 Array M_A9
+Call#<= -> M_E3 M_A42 Array M_A9
+Call#> -> M_E3 M_A42 Array M_A9
+Call#>= -> M_E3 M_A42 Array M_A9
+Call#== -> M_E3 M_A42 Array M_A9
+Call#!= -> M_E3 M_A42 Array M_A9
+Call#= -> M_E3 M_A42 Array M_A9
+Call#+= -> M_E3 M_A42 Array M_A9
+Call#-= -> M_E3 M_A42 Array M_A9
+Call#*= -> M_E3 M_A42 Array M_A9
+Call#/= -> M_E3 M_A42 Array M_A9
+Call#%= -> M_E3 M_A42 Array M_A9
+Call#; -> M_E3 M_A42 Array M_A9
+Call#) -> M_E3 M_A42 Array M_A9
+Call#, -> M_E3 M_A42 Array M_A9
+Call#( -> M_E4 ( Pass_Parameters ) M_A43
+Call#. -> . ID M_E5 M_A44
+Pass_Parameters#! -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters#++ -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters#-- -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters#( -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters#ID -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters#- -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters#INT -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters#FLOAT -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters#DOUBLE -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters#CHAR -> Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters#) -> M_E10 M_A47
+Pass_Parameters'#, -> , Expression M_E9 M_A45 Pass_Parameters' M_A46
+Pass_Parameters'#) -> M_E10 M_A47
+Type#char -> char M_A48
+Type#int -> int M_A49
+Type#long -> long M_A50
+Type#short -> short M_A51
+Type#float -> float M_A52
+Type#double -> double M_A53
+Constant#INT -> INT M_A54
+Constant#FLOAT -> FLOAT M_A54
+Constant#DOUBLE -> DOUBLE M_A54
+Constant#CHAR -> CHAR M_A54
+M_A1#[ -> $
+M_A1#, -> $
+M_A1#; -> $
+M_A2#, -> $
+M_A2#; -> $
+M_A3#{ -> $
+M_A4#char -> $
+M_A4#int -> $
+M_A4#long -> $
+M_A4#short -> $
+M_A4#float -> $
+M_A4#double -> $
+M_A4#} -> $
+M_A5#char -> $
+M_A5#int -> $
+M_A5#long -> $
+M_A5#short -> $
+M_A5#float -> $
+M_A5#double -> $
+M_A5#} -> $
+M_A6#} -> $
+M_A7#, -> $
+M_A7#; -> $
+M_A7#* -> $
+M_A7#/ -> $
+M_A7#% -> $
+M_A7#+ -> $
+M_A7#- -> $
+M_A7#< -> $
+M_A7#<= -> $
+M_A7#> -> $
+M_A7#>= -> $
+M_A7#== -> $
+M_A7#!= -> $
+M_A7#= -> $
+M_A7#+= -> $
+M_A7#-= -> $
+M_A7#*= -> $
+M_A7#/= -> $
+M_A7#%= -> $
+M_A7#) -> $
+M_A8#[ -> $
+M_A8#, -> $
+M_A8#; -> $
+M_A8#* -> $
+M_A8#/ -> $
+M_A8#% -> $
+M_A8#+ -> $
+M_A8#- -> $
+M_A8#< -> $
+M_A8#<= -> $
+M_A8#> -> $
+M_A8#>= -> $
+M_A8#== -> $
+M_A8#!= -> $
+M_A8#= -> $
+M_A8#+= -> $
+M_A8#-= -> $
+M_A8#*= -> $
+M_A8#/= -> $
+M_A8#%= -> $
+M_A8#) -> $
+M_A9#* -> $
+M_A9#/ -> $
+M_A9#% -> $
+M_A9#+ -> $
+M_A9#- -> $
+M_A9#< -> $
+M_A9#<= -> $
+M_A9#> -> $
+M_A9#>= -> $
+M_A9#== -> $
+M_A9#!= -> $
+M_A9#= -> $
+M_A9#+= -> $
+M_A9#-= -> $
+M_A9#*= -> $
+M_A9#/= -> $
+M_A9#%= -> $
+M_A9#; -> $
+M_A9#) -> $
+M_A9#, -> $
+M_A10#[ -> $
+M_A10#, -> $
+M_A10#; -> $
+M_A11#, -> $
+M_A11#; -> $
+M_A12#{ -> $
+M_A13#else -> $
+M_A13#; -> $
+M_A13#return -> $
+M_A13#continue -> $
+M_A13#break -> $
+M_A13#if -> $
+M_A13#switch -> $
+M_A13#do -> $
+M_A13#for -> $
+M_A13#while -> $
+M_A13#! -> $
+M_A13#++ -> $
+M_A13#-- -> $
+M_A13#( -> $
+M_A13#ID -> $
+M_A13#- -> $
+M_A13#INT -> $
+M_A13#FLOAT -> $
+M_A13#DOUBLE -> $
+M_A13#CHAR -> $
+M_A13#} -> $
+M_A13#case -> $
+M_A13#default -> $
+M_A14#; -> $
+M_A14#return -> $
+M_A14#continue -> $
+M_A14#break -> $
+M_A14#if -> $
+M_A14#switch -> $
+M_A14#do -> $
+M_A14#for -> $
+M_A14#while -> $
+M_A14#! -> $
+M_A14#++ -> $
+M_A14#-- -> $
+M_A14#( -> $
+M_A14#ID -> $
+M_A14#- -> $
+M_A14#INT -> $
+M_A14#FLOAT -> $
+M_A14#DOUBLE -> $
+M_A14#CHAR -> $
+M_A14#} -> $
+M_A14#case -> $
+M_A14#default -> $
+M_A15#! -> $
+M_A15#++ -> $
+M_A15#-- -> $
+M_A15#( -> $
+M_A15#ID -> $
+M_A15#- -> $
+M_A15#INT -> $
+M_A15#FLOAT -> $
+M_A15#DOUBLE -> $
+M_A15#CHAR -> $
+M_A16#; -> $
+M_A16#return -> $
+M_A16#continue -> $
+M_A16#break -> $
+M_A16#if -> $
+M_A16#switch -> $
+M_A16#do -> $
+M_A16#for -> $
+M_A16#while -> $
+M_A16#! -> $
+M_A16#++ -> $
+M_A16#-- -> $
+M_A16#( -> $
+M_A16#ID -> $
+M_A16#- -> $
+M_A16#INT -> $
+M_A16#FLOAT -> $
+M_A16#DOUBLE -> $
+M_A16#CHAR -> $
+M_A16#} -> $
+M_A16#case -> $
+M_A16#default -> $
+M_A17#< -> $
+M_A17#<= -> $
+M_A17#> -> $
+M_A17#>= -> $
+M_A17#== -> $
+M_A17#!= -> $
+M_A17#= -> $
+M_A17#+= -> $
+M_A17#-= -> $
+M_A17#*= -> $
+M_A17#/= -> $
+M_A17#%= -> $
+M_A17#; -> $
+M_A17#) -> $
+M_A17#+ -> $
+M_A17#- -> $
+M_A17#* -> $
+M_A17#/ -> $
+M_A17#% -> $
+M_A17#, -> $
+M_A18#; -> $
+M_A18#) -> $
+M_A18#< -> $
+M_A18#<= -> $
+M_A18#> -> $
+M_A18#>= -> $
+M_A18#== -> $
+M_A18#!= -> $
+M_A18#= -> $
+M_A18#+= -> $
+M_A18#-= -> $
+M_A18#*= -> $
+M_A18#/= -> $
+M_A18#%= -> $
+M_A18#+ -> $
+M_A18#- -> $
+M_A18#, -> $
+M_A19#; -> $
+M_A19#) -> $
+M_A19#, -> $
+M_A20#; -> $
+M_A20#) -> $
+M_A20#, -> $
+M_A21#; -> $
+M_A21#) -> $
+M_A21#, -> $
+M_A22#; -> $
+M_A22#) -> $
+M_A22#, -> $
+M_A23#; -> $
+M_A23#) -> $
+M_A23#, -> $
+M_A24#; -> $
+M_A24#) -> $
+M_A24#, -> $
+M_A25#; -> $
+M_A25#) -> $
+M_A25#, -> $
+M_A26#; -> $
+M_A26#) -> $
+M_A26#, -> $
+M_A27#; -> $
+M_A27#) -> $
+M_A27#, -> $
+M_A28#; -> $
+M_A28#) -> $
+M_A28#, -> $
+M_A29#; -> $
+M_A29#) -> $
+M_A29#, -> $
+M_A30#; -> $
+M_A30#) -> $
+M_A30#, -> $
+M_A31#+ -> $
+M_A31#- -> $
+M_A31#< -> $
+M_A31#<= -> $
+M_A31#> -> $
+M_A31#>= -> $
+M_A31#== -> $
+M_A31#!= -> $
+M_A31#= -> $
+M_A31#+= -> $
+M_A31#-= -> $
+M_A31#*= -> $
+M_A31#/= -> $
+M_A31#%= -> $
+M_A31#; -> $
+M_A31#) -> $
+M_A31#, -> $
+M_A32#+ -> $
+M_A32#- -> $
+M_A32#< -> $
+M_A32#<= -> $
+M_A32#> -> $
+M_A32#>= -> $
+M_A32#== -> $
+M_A32#!= -> $
+M_A32#= -> $
+M_A32#+= -> $
+M_A32#-= -> $
+M_A32#*= -> $
+M_A32#/= -> $
+M_A32#%= -> $
+M_A32#; -> $
+M_A32#) -> $
+M_A32#, -> $
+M_A33#* -> $
+M_A33#/ -> $
+M_A33#% -> $
+M_A33#+ -> $
+M_A33#- -> $
+M_A33#< -> $
+M_A33#<= -> $
+M_A33#> -> $
+M_A33#>= -> $
+M_A33#== -> $
+M_A33#!= -> $
+M_A33#= -> $
+M_A33#+= -> $
+M_A33#-= -> $
+M_A33#*= -> $
+M_A33#/= -> $
+M_A33#%= -> $
+M_A33#; -> $
+M_A33#) -> $
+M_A33#, -> $
+M_A34#* -> $
+M_A34#/ -> $
+M_A34#% -> $
+M_A34#+ -> $
+M_A34#- -> $
+M_A34#< -> $
+M_A34#<= -> $
+M_A34#> -> $
+M_A34#>= -> $
+M_A34#== -> $
+M_A34#!= -> $
+M_A34#= -> $
+M_A34#+= -> $
+M_A34#-= -> $
+M_A34#*= -> $
+M_A34#/= -> $
+M_A34#%= -> $
+M_A34#; -> $
+M_A34#) -> $
+M_A34#, -> $
+M_A35#* -> $
+M_A35#/ -> $
+M_A35#% -> $
+M_A35#+ -> $
+M_A35#- -> $
+M_A35#< -> $
+M_A35#<= -> $
+M_A35#> -> $
+M_A35#>= -> $
+M_A35#== -> $
+M_A35#!= -> $
+M_A35#= -> $
+M_A35#+= -> $
+M_A35#-= -> $
+M_A35#*= -> $
+M_A35#/= -> $
+M_A35#%= -> $
+M_A35#; -> $
+M_A35#) -> $
+M_A35#, -> $
+M_A36#* -> $
+M_A36#/ -> $
+M_A36#% -> $
+M_A36#+ -> $
+M_A36#- -> $
+M_A36#< -> $
+M_A36#<= -> $
+M_A36#> -> $
+M_A36#>= -> $
+M_A36#== -> $
+M_A36#!= -> $
+M_A36#= -> $
+M_A36#+= -> $
+M_A36#-= -> $
+M_A36#*= -> $
+M_A36#/= -> $
+M_A36#%= -> $
+M_A36#; -> $
+M_A36#) -> $
+M_A36#, -> $
+M_A37#* -> $
+M_A37#/ -> $
+M_A37#% -> $
+M_A37#+ -> $
+M_A37#- -> $
+M_A37#< -> $
+M_A37#<= -> $
+M_A37#> -> $
+M_A37#>= -> $
+M_A37#== -> $
+M_A37#!= -> $
+M_A37#= -> $
+M_A37#+= -> $
+M_A37#-= -> $
+M_A37#*= -> $
+M_A37#/= -> $
+M_A37#%= -> $
+M_A37#; -> $
+M_A37#) -> $
+M_A37#, -> $
+M_A38#* -> $
+M_A38#/ -> $
+M_A38#% -> $
+M_A38#+ -> $
+M_A38#- -> $
+M_A38#< -> $
+M_A38#<= -> $
+M_A38#> -> $
+M_A38#>= -> $
+M_A38#== -> $
+M_A38#!= -> $
+M_A38#= -> $
+M_A38#+= -> $
+M_A38#-= -> $
+M_A38#*= -> $
+M_A38#/= -> $
+M_A38#%= -> $
+M_A38#; -> $
+M_A38#) -> $
+M_A38#, -> $
+M_A39#* -> $
+M_A39#/ -> $
+M_A39#% -> $
+M_A39#+ -> $
+M_A39#- -> $
+M_A39#< -> $
+M_A39#<= -> $
+M_A39#> -> $
+M_A39#>= -> $
+M_A39#== -> $
+M_A39#!= -> $
+M_A39#= -> $
+M_A39#+= -> $
+M_A39#-= -> $
+M_A39#*= -> $
+M_A39#/= -> $
+M_A39#%= -> $
+M_A39#; -> $
+M_A39#) -> $
+M_A39#, -> $
+M_A40#[ -> $
+M_A40#( -> $
+M_A40#. -> $
+M_A40#* -> $
+M_A40#/ -> $
+M_A40#% -> $
+M_A40#+ -> $
+M_A40#- -> $
+M_A40#< -> $
+M_A40#<= -> $
+M_A40#> -> $
+M_A40#>= -> $
+M_A40#== -> $
+M_A40#!= -> $
+M_A40#= -> $
+M_A40#+= -> $
+M_A40#-= -> $
+M_A40#*= -> $
+M_A40#/= -> $
+M_A40#%= -> $
+M_A40#; -> $
+M_A40#) -> $
+M_A40#, -> $
+M_A41#* -> $
+M_A41#/ -> $
+M_A41#% -> $
+M_A41#+ -> $
+M_A41#- -> $
+M_A41#< -> $
+M_A41#<= -> $
+M_A41#> -> $
+M_A41#>= -> $
+M_A41#== -> $
+M_A41#!= -> $
+M_A41#= -> $
+M_A41#+= -> $
+M_A41#-= -> $
+M_A41#*= -> $
+M_A41#/= -> $
+M_A41#%= -> $
+M_A41#; -> $
+M_A41#) -> $
+M_A41#, -> $
+M_A42#[ -> $
+M_A42#* -> $
+M_A42#/ -> $
+M_A42#% -> $
+M_A42#+ -> $
+M_A42#- -> $
+M_A42#< -> $
+M_A42#<= -> $
+M_A42#> -> $
+M_A42#>= -> $
+M_A42#== -> $
+M_A42#!= -> $
+M_A42#= -> $
+M_A42#+= -> $
+M_A42#-= -> $
+M_A42#*= -> $
+M_A42#/= -> $
+M_A42#%= -> $
+M_A42#; -> $
+M_A42#) -> $
+M_A42#, -> $
+M_A43#* -> $
+M_A43#/ -> $
+M_A43#% -> $
+M_A43#+ -> $
+M_A43#- -> $
+M_A43#< -> $
+M_A43#<= -> $
+M_A43#> -> $
+M_A43#>= -> $
+M_A43#== -> $
+M_A43#!= -> $
+M_A43#= -> $
+M_A43#+= -> $
+M_A43#-= -> $
+M_A43#*= -> $
+M_A43#/= -> $
+M_A43#%= -> $
+M_A43#; -> $
+M_A43#) -> $
+M_A43#, -> $
+M_A44#* -> $
+M_A44#/ -> $
+M_A44#% -> $
+M_A44#+ -> $
+M_A44#- -> $
+M_A44#< -> $
+M_A44#<= -> $
+M_A44#> -> $
+M_A44#>= -> $
+M_A44#== -> $
+M_A44#!= -> $
+M_A44#= -> $
+M_A44#+= -> $
+M_A44#-= -> $
+M_A44#*= -> $
+M_A44#/= -> $
+M_A44#%= -> $
+M_A44#; -> $
+M_A44#) -> $
+M_A44#, -> $
+M_A45#, -> $
+M_A45#) -> $
+M_A46#) -> $
+M_A47#) -> $
+M_A48#ID -> $
+M_A49#ID -> $
+M_A50#ID -> $
+M_A51#ID -> $
+M_A52#ID -> $
+M_A53#ID -> $
+M_A54#: -> $
+M_A54#* -> $
+M_A54#/ -> $
+M_A54#% -> $
+M_A54#+ -> $
+M_A54#- -> $
+M_A54#< -> $
+M_A54#<= -> $
+M_A54#> -> $
+M_A54#>= -> $
+M_A54#== -> $
+M_A54#!= -> $
+M_A54#= -> $
+M_A54#+= -> $
+M_A54#-= -> $
+M_A54#*= -> $
+M_A54#/= -> $
+M_A54#%= -> $
+M_A54#; -> $
+M_A54#) -> $
+M_A54#, -> $
+M_A55#; -> $
+M_E1#( -> $
+M_E2#struct -> $
+M_E2#char -> $
+M_E2#int -> $
+M_E2#long -> $
+M_E2#short -> $
+M_E2#float -> $
+M_E2#double -> $
+M_E2#; -> $
+M_E2#return -> $
+M_E2#continue -> $
+M_E2#break -> $
+M_E2#if -> $
+M_E2#switch -> $
+M_E2#do -> $
+M_E2#for -> $
+M_E2#while -> $
+M_E2#! -> $
+M_E2#++ -> $
+M_E2#-- -> $
+M_E2#( -> $
+M_E2#ID -> $
+M_E2#- -> $
+M_E2#INT -> $
+M_E2#FLOAT -> $
+M_E2#DOUBLE -> $
+M_E2#CHAR -> $
+M_E2#} -> $
+M_E3#[ -> $
+M_E3#* -> $
+M_E3#/ -> $
+M_E3#% -> $
+M_E3#+ -> $
+M_E3#- -> $
+M_E3#< -> $
+M_E3#<= -> $
+M_E3#> -> $
+M_E3#>= -> $
+M_E3#== -> $
+M_E3#!= -> $
+M_E3#= -> $
+M_E3#+= -> $
+M_E3#-= -> $
+M_E3#*= -> $
+M_E3#/= -> $
+M_E3#%= -> $
+M_E3#; -> $
+M_E3#) -> $
+M_E3#, -> $
+M_E4#( -> $
+M_E5#* -> $
+M_E5#/ -> $
+M_E5#% -> $
+M_E5#+ -> $
+M_E5#- -> $
+M_E5#< -> $
+M_E5#<= -> $
+M_E5#> -> $
+M_E5#>= -> $
+M_E5#== -> $
+M_E5#!= -> $
+M_E5#= -> $
+M_E5#+= -> $
+M_E5#-= -> $
+M_E5#*= -> $
+M_E5#/= -> $
+M_E5#%= -> $
+M_E5#; -> $
+M_E5#) -> $
+M_E5#, -> $
+M_E6#; -> $
+M_E6#) -> $
+M_E6#, -> $
+M_E7#; -> $
+M_E7#) -> $
+M_E7#+ -> $
+M_E7#- -> $
+M_E7#< -> $
+M_E7#<= -> $
+M_E7#> -> $
+M_E7#>= -> $
+M_E7#== -> $
+M_E7#!= -> $
+M_E7#= -> $
+M_E7#+= -> $
+M_E7#-= -> $
+M_E7#*= -> $
+M_E7#/= -> $
+M_E7#%= -> $
+M_E7#* -> $
+M_E7#/ -> $
+M_E7#% -> $
+M_E7#, -> $
+M_E8#, -> $
+M_E8#) -> $
+M_E9#, -> $
+M_E9#) -> $
+M_E10#) -> $
+M_A9_1#, -> $
+M_A9_1#; -> $
+M_A9_1#* -> $
+M_A9_1#/ -> $
+M_A9_1#% -> $
+M_A9_1#+ -> $
+M_A9_1#- -> $
+M_A9_1#< -> $
+M_A9_1#<= -> $
+M_A9_1#> -> $
+M_A9_1#>= -> $
+M_A9_1#== -> $
+M_A9_1#!= -> $
+M_A9_1#= -> $
+M_A9_1#+= -> $
+M_A9_1#-= -> $
+M_A9_1#*= -> $
+M_A9_1#/= -> $
+M_A9_1#%= -> $
+M_A9_1#) -> $

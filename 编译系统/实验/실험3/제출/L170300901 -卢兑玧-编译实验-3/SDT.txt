@@ -1,0 +1,87 @@
+Program -> Function Program
+Program -> $
+Function -> Type ID ( Parameters ) Function_Body
+Function -> void ID ( Parameters ) Function_Body
+Parameters -> $
+Parameters -> Type ID Parameters'
+Parameters' -> $
+Parameters' -> , Type ID Parameters'
+Function_Body -> ;
+Function_Body -> Block
+Block -> { Define_Sentenses Sentenses }
+Define_Sentenses -> Define_Sentense Define_Sentenses
+Define_Sentenses -> $
+Define_Sentense -> Type ID {Array.name=lookup(ID.lexeme); Array.type=Type.type; Array.length=Type.length; Array.dimension=0;} Array {Indentifiers.type=Type.type; Indentifiers.length=Type.length;} Indentifiers ;
+Define_Sentense -> struct ID {List_Member.name=lookup(ID.lexeme); List_Member.type="struct"} { List_Member } ;
+List_Member -> Type ID {Array.name=lookup(ID.lexeme); Array.type=Type.type; Array.length=Type.length; Array.dimension=0;} Array ; {List_Member'.name=List_Member.name; List_Member'.type=struct"+"("+Type.type; List_Member'.length=latesetSymbol().length; List_Member'.member_num=1;} List_Member'
+List_Member' -> Type ID {Array.name=lookup(ID.lexeme); Array.type=Type.type; Array.length=Type.length; Array.dimension=0;} Array ; {List_Member'1.name=List_Member'.name; List_Member'1.type=List_Member'.type+","+Type.type; List_Member'1.length=List_Member'.length+Type.length; List_Member'1.member_num=List_Member'.member_num+1;} List_Member'
+List_Member' -> {removeSymbol(List_Member'.member_num); enter(List_Member'.name, List_Member'.type+")", offset-List_Member'.length, List_Member'.length);}
+Array -> M_A7
+Array -> [ INT ] {Array1.name=Array.name;  Array1.type=Array.type;  Array1.length=Array.length*lookup(INT.lexeme); Array1.dimension=Array.dimension+1;  Array1.arr(Array.dimension)=INT;  Array1.arr(i)=Array.arr(i);} Array {Array.value=Array1.value; Array.val=Array1.val; Array.type=Array1.type+"[]";}
+Indentifiers -> $
+Indentifiers -> , ID {Array.type=Indentifiers.type;  Array.length=type.length;Array.name=lookup(ID.lexeme);  Array.dimension=0;} Array {Indentifiers1.type=Array.type;  Indentifiers1.length=Array.length;} Indentifiers
+Sentenses -> $
+Sentenses -> Sentense Sentenses
+Sentense -> Expression ;
+Sentense -> ;
+Sentense -> return Expression {gen(return Expression.value);} ;
+Sentense -> continue ;
+Sentense -> break ;
+Sentense -> if ( Expression ) {gen(if "+E.value+" goto "+(instructions.size()+2)); Sentense.backpatch=instructions.size(); gen(null);} Block {gen(null);  backpatch(Sentense.backpatch, "goto "+instructions.size());  Sentense.backpatch=instructions.size()-1;} Else_Body {backpatch(Sentense.backpatch, "goto "+instructions.size());}
+Sentense -> switch ( Expression ) { Cases_Body }
+Sentense -> do Sentense while ( Expression ) ;
+Sentense -> for ( Expression ; Expression ; Expression ) Sentense
+Sentense -> while ( {Sentense.backto=instructions.size();} Expression ) {gen(if "+E.value+" goto "+(instructions.size()+2)); Sentense.backpatch=instructions.size(); gen(null);} Block {gen(goto Sentense.backto);  backpatch(Sentense.backpatch, "goto "+instructions.size());}
+Else_Body -> else Block
+Else_Body -> $
+Cases_Body -> Case_Body Cases_Body
+Cases_Body -> $
+Case_Body -> case Constant : Sentenses
+Case_Body -> default : Sentenses
+Expression -> Value {Expression'.value=Value.value;  Expression'.val=Value.val; Expression'.type=Value.type;} Expression' {Expression.value=Expression'.value; Expression.val=Expression'.val;}
+Expression' ->
+Expression' -> < Value {b=newBool();  gen(bi+" := "+Expression'.value+" < "+Value.value);  Expression'.value=bi;}
+Expression' -> <= Value {b=newBool(); gen(bi+" := "+Expression'.value+" <= "+Value.value); Expression'.value=bi;}
+Expression' -> > Value {b=newBool(); gen(bi+" := "+Expression'.value+" > "+Value.value); Expression'.value=bi;}
+Expression' -> >= Value {b=newBool(); gen(bi+" := "+Expression'.value+" >= "+Value.value); Expression'.value=bi;}
+Expression' -> == Value {b=newBool(); gen(bi+" := "+Expression'.value+" == "+Value.value); Expression'.value=bi;}
+Expression' -> != Value {b=newBool(); gen(bi+" := "+Expression'.value+" != "+Value.value); Expression'.value=bi;}
+Expression' -> = Value {Value.val不为空: remove(instruction.startsWith(Expression'.value)); gen(Expression'.val+" := "+Value.value);Expression'.value=Expression'.val;}{Value.val为空  : gen(Expression'.value+" := "+Value.value);}
+Expression' -> += Value {gen(Expression'.value+" := "+Expression'.value+" + "+Value.value); Expression'.value=Expression'.value+Value.value;}
+Expression' -> -= Value {gen(Expression'.value+" := "+Expression'.value+" - "+Value.value); Expression'.value=Expression'.value-Value.value;}
+Expression' -> *= Value {gen(Expression'.value+" := "+Expression'.value+" * "+Value.value); Expression'.value=Expression'.value*Value.value;}
+Expression' -> /= Value {gen(Expression'.value+" := "+Expression'.value+" / "+Value.value); Expression'.value=Expression'.value/Value.value;}
+Expression' -> %= Value {gen(Expression'.value+" := "+Expression'.value+" % "+Value.value); Expression'.value=Expression'.value%Value.value;}
+Value -> Add_Item {Add_Items.value=Add_Item.value; Add_Items.val=Add_Item.val; Add_Items.type=Add_Item.type;} Add_Items {Value.value=Add_Items.value; Value.val=Add_Items.val;}
+Add_Items -> $
+Add_Items -> + Add_Item M_A31 Add_Items {Add_Items.value=Add_Items1.value; Add_Items.val=Add_Items1.val;}
+Add_Items -> - Add_Item M_A32 Add_Items {Add_Items.value=Add_Items1.value; Add_Items.val=Add_Items1.val;}
+Add_Item -> Factor_Multi M_A17 Factor_Multis {Add_Items.value=Factor_Multis.value; Add_Items.val=Factor_Multis.val;}
+Factor_Multis -> $
+Factor_Multis -> * Factor_Multi {gen(newTemp(ti)+" := "+Factor_Multis.value+" * "+Factor_Multi.value); Factor_Multis1.value=ti;Factor_Multis1.type=Factor_Multis.type;} Factor_Multis {Factor_Multis.value=Factor_Multis.value; Factor_Multis.val=Factor_Multis.val;}
+Factor_Multis -> / Factor_Multi {gen(newTemp(ti)+" := "+Factor_Multis.value+" / "+Factor_Multi.value); Factor_Multis1.value=ti;Factor_Multis1.type=Factor_Multis.type;} Factor_Multis {Factor_Multis.value=Factor_Multis.value; Factor_Multis.val=Factor_Multis.val;}
+Factor_Multis -> % Factor_Multi {gen(newTemp(ti)+" := "+Factor_Multis.value+" % "+Factor_Multi.value); Factor_Multis1.value=ti;Factor_Multis1.type=Factor_Multis.type;} Factor_Multis {Factor_Multis.value=Factor_Multis.value; Factor_Multis.val=Factor_Multis.val;}
+Factor_Multi -> ! Factor_Multi {Factor_Multis.value=newBool(bi); Factor_Multi.type=Factor_Multi1.type; gen(bi+" := ~"+Factor_Multis1.value);}
+Factor_Multi -> ++ Factor_Multi {Factor_Multis.value=newTemp(ti); Factor_Multi.type=Factor_Multi1.type; gen(ti+" := "+Factor_Multis1.value+" + 1");}
+Factor_Multi -> -- Factor_Multi {Factor_Multis.value=newTemp(ti); Factor_Multi.type=Factor_Multi1.type; gen(ti+" := "+Factor_Multis1.value+" - 1");}
+Factor_Multi -> ( Expression ) {Factor_Multis.value=Expression.value; Factor_Multi.type=Expression.type;}
+Factor_Multi -> ID {Call.name=lookup(ID.lexeme);;} Call {Factor_Multi.value=call.value; 		Factor_Multi.val=call.val;;		Factor_Multi.type=call.type;}
+Factor_Multi -> Constant {Factor_Multi.value=Constant.value; 	Factor_Multi.val=Constant.val;	Factor_Multi.type=Constant.type;}
+Factor_Multi -> - Factor_Multi {Factor_Multi.value=newTemp(ti); Factor_Multi.type=Factor_Multi1.type; gen(ti+" := 0 - "+Factor_Multi1.value);}
+Call -> {Array.name=Call.name; Array.dimension=0;} Array {Call.value=Array.value; 			Call.val=Array.val;				Call.type=Array.type;}
+Call -> ( Pass_Parameters ) {Call.value=return(Call.name); Call.type=Function(Call.name).type;}
+Call -> . ID {Call.val= Call.name+"{"+lookup(ID.lexeme)+"}"; Call.value=Call.name{offset}; Call.type=Struct(Call.name).lookup(ID.lexeme);}
+Pass_Parameters -> Expression {gen("param "+Expression.value);  Pass_Parameters'1.name=Pass_Parameters'.name; Pass_Parameters'1.name=Pass_Parameters'.name;} Pass_Parameters' {Pass_Parameters.paramNum=Pass_Parameters'.paramNum;}
+Pass_Parameters -> {gen("call"+Call.name+","+Pass_Parameters.paramNum);}
+Pass_Parameters' -> , Expression {gen("param "+Expression.value);  Pass_Parameters'1.name=Pass_Parameters'.name; Pass_Parameters'1.name=Pass_Parameters'.name;} Pass_Parameters' {Pass_Parameters.paramNum=Pass_Parameters'.paramNum;}
+Pass_Parameters' -> {gen("call"+Call.name+","+Pass_Parameters'.paramNum);}
+Type -> char {Type.type = char; Type.length = 1;}
+Type -> int {Type.type = int; Type.length = 4;}
+Type -> long {Type.type = long; Type.length = 4;}
+Type -> short {Type.type = short; Type.length = 2;}
+Type -> float {Type.type = float; Type.length = 4;}
+Type -> double {Type.type = char; Type.length = 8;}
+Constant -> INT {const.value=lookup(INT.lexeme); const.type=int;}
+Constant -> FLOAT {const.value=lookup(FLOAT.lexeme); const.type=float;}
+Constant -> DOUBLE {const.value=lookup(DOUBLE.lexeme); const.type=double;}
+Constant -> CHAR {const.value=lookup(CHAR.lexeme); const.type=char;}

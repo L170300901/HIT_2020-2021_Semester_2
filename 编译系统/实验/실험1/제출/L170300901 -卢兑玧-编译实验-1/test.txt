@@ -1,0 +1,69 @@
+错误测试
+/*正常测试用例*/
+public static void main(){
+    int a;
+}
+/*关键字识别*/
+int float double boolean true 
+false include char if else 
+do while break continue for
+main void printf class scanf
+return char public static private
+inlcude 
+/*标识符识别正确*/
+test _test test123 test_123 
+a  A  _abc0  com_ex_one_1
+/*标识符识别错误*/
+1test
+/*数字识别正确*/
+0 00 0x0
+123 123.456 123E456 123E+456 123E-456 
+123.456E789 123.456E+789  123.456E-789 
+0X123a8 0x123a8  0x00101 1111111 00000000 0123 
+0.1 0E123
+/*数字识别错误*/
+01238 
+0x123g8
+123.. 
+123.1B 
+123.1EB 
+123.456E-789B
+123.456E-B
+123.456E-/
+0xx
+/*符号识别*/
++ ++ += 
+- -- -=
+* *= % %= ! != 
+= == ====== 
+/ /= 
+> >= >> >>>
+< <= <<
+& && | ||
+? ? : ~ ^ , . ; ( ) [ ] { } ,,.
+/*字符串识别正确*/
+"asdfgh"
+"''""     a     "
+/*字符串识别错误*/
+"78959
+/*字符常量识别正确*/
+'c' '\n'  'r'
+''''
+
+/*字符常量识别错误*/
+'\a'
+'asd' 
+adf'
+' 
+adf
+'
+/*注释识别正确*/
+/*79    89*/
+//adjfkajdfkj
+adjfkjasd//123
+/sdf/adsf/asdf//1
+/*/**/
+/*注释识别错误*/
+/*
+/**
+/*注释识别错误
